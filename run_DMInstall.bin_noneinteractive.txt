@@ -1,0 +1,4 @@
+./DMInstall.bin -q /home/dmdba/auto_install.xml
+
+See: https://eco.dameng.com/community/post/20240122175502VMHTLSQ5TEWIJTJZFW
+

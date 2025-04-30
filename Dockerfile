@@ -50,8 +50,6 @@ ENV PATH=$PATH:$DM_HOME/bin:$DM_HOME/tool
 
 WORKDIR /home/dmdba
 
-RUN echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/dmdba/dmdbms/bin' >> .bash_profile
-RUN echo 'export DM_HOME=/home/dmdba/dmdbms' >> .bash_profile
 RUN echo 'export PATH=$PATH:$DM_HOME/bin:$DM_HOME/tool"' >> .bash_profile
 
 USER dmdba

@@ -43,13 +43,11 @@ RUN echo 'dmdba  hard      data       unlimited' >> /etc/security/limits.conf
 
 # 创建dmdata目录，可挂载外部卷到相应目录，以实现持久化。
 RUN mkdir -p /dmdata/data
-RUN mkdir -p /dmdata/arch
-RUN mkdir -p /dmdata/dmbak
 
 RUN chown -R dmdba:dinstall /dmdata
 RUN chmod -R 755 /dmdata
 
-VOLUME [ "/dmdata/data", "/dmdata/arch", "/dmdata/dmbak" ]
+VOLUME [ "/dmdata/data" ]
 
 # 安装数据库
 USER dmdba

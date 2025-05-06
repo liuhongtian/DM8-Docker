@@ -56,10 +56,19 @@ USER dmdba
 WORKDIR /opt 
 RUN ./DMInstall.bin -q /tmp/auto_install.xml
 
-# 清理安装包
+# 设置备份服务，此处忽略
+#USER root
+#RUN /home/dmdba/dmdbms/script/root/root_installer.sh
+
+# 安装数据库实例服务
 USER root
+WORKDIR /home/dmdba/dmdbms/script/root/
+RUN ./dm_service_installer.sh -t dmserver -dm_ini /dmdata/data/DMDB/dm.ini -p DMDB
+
+# 清理安装包
 RUN rm -f /opt/DMInstall.bin
 RUN rm -f /tmp/auto_install.xml
+
 
 USER dmdba
 WORKDIR /home/dmdba
@@ -73,17 +82,6 @@ EXPOSE 5237
 
 # 添加启动脚本
 COPY entrypoint.sh /home/dmdba
-
-# 设置环境变量（可从外部传入从而覆盖缺省值）
-ENV PAGE_SIZE=32
-ENV EXTENT_SIZE=32
-ENV CASE_SENSITIVE=y
-ENV CHARSET=1
-ENV DB_NAME=DMDB
-ENV INSTANCE_NAME=DBSERVER
-ENV PORT_NUM=5237
-ENV SYSDBA_PWD=Huawei2025
-ENV SYSAUDITOR_PWD=Huawei2025
 
 # 启动数据库实例服务
 ENTRYPOINT ["/usr/bin/sh", "/home/dmdba/entrypoint.sh"]

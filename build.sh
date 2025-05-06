@@ -1,1 +1,1 @@
-docker build --build-arg DMDBA_PASSWORD=dmdba -t dm8-centos7 -f Dockerfile .
+docker build -t dm8:dm8_20250122_x86_rh7_64 -f Dockerfile .

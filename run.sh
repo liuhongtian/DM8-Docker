@@ -1,9 +1,7 @@
 docker run -d \
 --name dm8 \
 -p 5237:5237 \
--v ./dmdata/data:/dmdata/data \
--v ./dmdata/arch:/dmdata/arch \
--v ./dmdata/dmbak:/dmdata/dmbak \
+-v ~/dmdata/data:/dmdata/data \
 -e PAGE_SIZE=32 \
 -e EXTENT_SIZE=32 \
 -e CASE_SENSITIVE=y \

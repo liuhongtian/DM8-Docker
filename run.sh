@@ -10,4 +10,4 @@ docker run -d \
 -e PORT_NUM=5237 \
 -e SYSDBA_PWD=Huawei2025 \
 -e SYSAUDITOR_PWD=Huawei2025 \
-dm8:dm8_20250122_x86_rh7_64
+dm8:dm8_20251208_x86_CentOS7_64
